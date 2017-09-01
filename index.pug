@@ -22,19 +22,20 @@ html(lang="es")
 
 		section.section
 			.container.has-text-centered
-				h1.maintitle.is-size-1.animated.bounceIn Celebremos hoy y siempre contigo
-				img(src="app/img/pastel.png", alt="Celebreamos hoy y siempre contigo").animated.zoomIn
+				img(src="app/img/celebremos.jpg").maintitle.is-size-1.animated.bounceIn
 				
 
 
 		div#app
 			b-loading(:active.sync="startLoading")
-			section.section: .container.has-text-centered
+			
+			//section.section: .container.has-text-centered
 				h2.is-size-3 Felicidades a nuestros Socios que cumplen años en el mes de #[strong {{currentMonth}}]
 
 			.container
 
-				.hero.is-warning: .hero-body: .container.has-text-centered: h1.title SOCIOS ORO
+				.container.has-text-centered
+					img(src="app/img/socios-oro.png", alt="Socios Oro")
 				section.section: .columns.is-multiline
 					div(v-for="(sociosEnDia, indx) in sociosPerDay").column.is-3
 						.notification.is-warning.animated.wobble
@@ -47,15 +48,14 @@ html(lang="es")
 										.media-left: b-icon(icon="face")
 										.media-content: span {{soc.Nombre.toUpperCase()}}
 									.placa {{soc.Placacentro.toUpperCase()}}
-					.column.has-text-centered
-						.notification.is-warning
-							h2.is-size-2 ¡¡Feliz Cumpleaños!!<br>Socios Oro
-							img(src="app/img/triangle.svg").is-fluid
+				.container: .columns
+					.column.is-6.has-text-centered: h2.is-size-2 ¡¡Feliz Cumpleaños!!<br>Socios Oro
 
-				.hero.is-success: .hero-body: .container.has-text-centered: h1.title SOCIOS PLATA
+				.container.has-text-centered.mt
+					img(src="app/img/socios-plata.png", alt="Socios Plata")
 				section.section: .columns.is-multiline
 					div(v-for="(sociosEnDia, indx) in sociosPerDay").column.is-3
-						.notification.is-success.animated.wobble
+						.notification.is-light.animated.wobble
 							.media
 								.media-left: figure.image.is-32x32: img(v-bind:src="'app/img/partyicons/'+randomImage()").animated.infinite.jello
 								.media-content: .content: h3.is-size-4 {{indx}} de {{currentMonth}}
@@ -65,10 +65,9 @@ html(lang="es")
 										.media-left: b-icon(icon="face")
 										.media-content: span {{soc.Nombre.toUpperCase()}}
 									.placa {{soc.Placacentro.toUpperCase()}}
-					.column.has-text-centered
-						.notification.is-success
-							h2.is-size-2 ¡¡Feliz Cumpleaños!!<br>Socios Plata
-							img(src="app/img/star.svg").is-fluid
+				.container: .columns
+					.column.is-6.is-offset-6.has-text-centered: h2.is-size-2 ¡¡Feliz Cumpleaños!!<br>Socios Plata
+
 
 					
 
